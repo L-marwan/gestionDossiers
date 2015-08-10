@@ -22,6 +22,10 @@ public class Dossier {
 		 this.tf = tf;
 	}
 	
+	public Dossier (int num){
+		this.numDossier = num;
+	}
+	
 	/**
 	 *  default cunstructor 
 	 */
@@ -63,17 +67,7 @@ public class Dossier {
 		Dossier d= (Dossier) obj;
 		return numDossier==d.numDossier ;
 	}
-	
-	/**
-	 * charger la liste des dossiers 
-	 * @return
-	 */
-	public static ArrayList<Dossier> charger(){
-		
-		ArrayList<Dossier> resultat = new ArrayList<Dossier>();
-		
-		return resultat;
-	}
+
 	
 
 }

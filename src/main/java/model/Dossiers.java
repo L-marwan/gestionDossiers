@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Dossiers {
 	
 	private ArrayList<Dossier> dossiers;
+	
 	
 	
 	public Dossiers() {
@@ -39,21 +41,23 @@ public class Dossiers {
 	}
 	
 	public void ajouter (Dossier d){
-		
+		dossiers.add(d);
 	}
 	
 	public void supprimer (int numDossier ){
-		
+		dossiers.remove(new Dossier(numDossier));
 	}
 	
-	public void save (String path) throws IOException{
+	public void save (String path) throws IOException, JAXBException{
 		File f = new File (path);
-		if(f.exists()){
-			
-		}else{
-			f.createNewFile();
-			
+		if(!f.exists()){
+			f.createNewFile();	
 		}
+		JAXBContext context;
+		context = JAXBContext.newInstance(Dossiers.class);
+		Marshaller m = context.createMarshaller();
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		m.marshal(this, f);
 	}
 	
 	public boolean numDossierExiste(int numDossier){
@@ -68,6 +72,10 @@ public class Dossiers {
 	
 	public ArrayList<Dossier> getDossiers() {
 		return dossiers;
+	}
+	
+	public void setDossiers(ArrayList<Dossier> dossiers) {
+		this.dossiers = dossiers;
 	}
 	
 	
