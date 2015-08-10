@@ -14,14 +14,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Dossiers {
 	
 	private ArrayList<Dossier> dossiers;
+	private static Dossiers instance;
 	
 	
 	
-	public Dossiers() {
+	private Dossiers() {
 		dossiers = new ArrayList<Dossier>();
 	}
 	
-	public Dossiers (String path) throws IOException, JAXBException{
+	private Dossiers (String path) throws IOException, JAXBException{
 		File f = new File (path);
 		if(!f.exists()){
 			f.createNewFile();	
@@ -38,6 +39,13 @@ public class Dossiers {
 		} catch (JAXBException e) {
 			dossiers = new ArrayList<Dossier>();
 		}
+	}
+	
+	public static Dossiers getInstance(String path) throws IOException, JAXBException{
+		if(instance == null){
+			instance = new Dossiers(path);
+		}
+		return instance;
 	}
 	
 	public void ajouter (Dossier d){

@@ -11,6 +11,12 @@ import gui.MainFrame;
 public class Main {
 
 	public static void main(String[] args) throws IOException, JAXBException {
-		new MainFrame();
+		//new MainFrame();
+		
+		Dossiers ds = Dossiers.getInstance("dossiers.xml");
+		
+		for(Dossier d : ds.getDossiers()){
+			System.out.println(d.getNumDossier());
+		}
 	}
 }

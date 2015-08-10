@@ -4,6 +4,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.Dossiers;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -11,6 +14,8 @@ public class FormAjout extends JPanel {
 	private JLabel numLab, nomLab, tfLab;
 	private JTextField numTF, nomTF , tfTF ;
 	private JButton btnAjouter, btnSupprimer, btnModifier;
+	
+	private static final String FILE_PATH = "dossiers.xml";
 	
 	
 	/**
@@ -34,6 +39,8 @@ public class FormAjout extends JPanel {
 		btnAjouter = new JButton("Ajouter");
 		btnAjouter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Dossiers d = Dossiers.getInstance(FILE_PATH);
+				
 			}
 		});
 		btnAjouter.setLocation(10, 113);
