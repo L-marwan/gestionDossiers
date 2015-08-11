@@ -2,10 +2,16 @@ package model;
 
 import java.util.ArrayList;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement
 public class Dossier {
 	private int numDossier;
-	private String nomDossier;
-	private String tf;
+	private String nomDossier ="";
+	private String tf = "";
+	
+	private String id;
 	
 	//later on add path or something 
 	
@@ -17,12 +23,14 @@ public class Dossier {
 	 * @param tf
 	 */
 	public Dossier(int num, String nom, String tf) {
+		 id = IDGenerator.nextUUID();
 		 this.numDossier = num;
 		 this.nomDossier = nom;
 		 this.tf = tf;
 	}
 	
 	public Dossier (int num){
+		id = IDGenerator.nextUUID();
 		this.numDossier = num;
 	}
 	
@@ -58,6 +66,12 @@ public class Dossier {
 	public void setTf(String tf) {
 		this.tf = tf;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	/**
 	 * 
@@ -65,7 +79,7 @@ public class Dossier {
 	@Override
 	public boolean equals(Object obj) {
 		Dossier d= (Dossier) obj;
-		return numDossier==d.numDossier ;
+		return id.equals(d.id) ;
 	}
 
 	

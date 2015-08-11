@@ -56,6 +56,19 @@ public class Dossiers {
 		dossiers.remove(new Dossier(numDossier));
 	}
 	
+	public void modifier (Dossier d ){
+		Dossier dAModifier = d;
+		for(Dossier d2 : dossiers){
+			if(d2.equals(d)){
+				dAModifier = d2;
+				break;
+			}
+		}
+		dAModifier.setNomDossier(d.getNomDossier());
+		dAModifier.setNumDossier(d.getNumDossier());
+		dAModifier.setTf(d.getTf());
+	}
+	
 	public void save (String path) throws IOException, JAXBException{
 		File f = new File (path);
 		if(!f.exists()){

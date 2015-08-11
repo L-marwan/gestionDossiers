@@ -6,17 +6,21 @@ import javax.xml.bind.JAXBException;
 
 import model.Dossier;
 import model.Dossiers;
-import gui.MainFrame;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException, JAXBException {
 		//new MainFrame();
+		Dossiers d = Dossiers.getInstance("dossier.xml");
 		
-		Dossiers ds = Dossiers.getInstance("dossiers.xml");
+		Dossier dd = d.getDossiers().get(1);
 		
-		for(Dossier d : ds.getDossiers()){
-			System.out.println(d.getNumDossier());
-		}
+		dd.setNomDossier("hhh");
+		dd.setTf("111");
+		
+		d.modifier(dd);
+		d.save("dossier.xml");
+		
+		
 	}
 }
