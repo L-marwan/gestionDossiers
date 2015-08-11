@@ -32,6 +32,8 @@ public class MainPanel  extends JPanel{
 	private JPanel topPanel;
 	private FormAjout ajout;
 	private DefaultTableModel model;
+	
+	private static final String FILE_PATH = "dossiers.xml";
 
 	public MainPanel() {
 		setLayout(new BorderLayout());
@@ -78,7 +80,7 @@ public class MainPanel  extends JPanel{
 		add(scrollPane,BorderLayout.WEST);
 		add(topPanel,BorderLayout.NORTH);
 
-		ajout = new FormAjout();
+		ajout = new FormAjout(listeDossiers);
 		add(ajout);
 	}
 
@@ -86,10 +88,12 @@ public class MainPanel  extends JPanel{
 
 	private void loadData() {
 		System.out.println("START loadData method");
-
+		
 		ArrayList<Dossier> rs;
+
 		try {
-			rs = Dossiers.getInstance("dossier.xml").getDossiers();
+			rs = Dossiers.getInstance(FILE_PATH).getDossiers();
+			
 			// Names of columns
 			Vector<String> columnNames = new Vector<String>();
 			columnNames.add("Num Dossier");
@@ -97,6 +101,7 @@ public class MainPanel  extends JPanel{
 			columnNames.add("T.F");
 			// Data of the table
 			Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+			
 			for(Dossier d :rs) {
 				Vector<Object> vector = new Vector<Object>();
 				vector.add(d.getNumDossier());
@@ -113,6 +118,7 @@ public class MainPanel  extends JPanel{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		System.out.println("END loadData method");
 	}
 }
