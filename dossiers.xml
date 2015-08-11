@@ -2,9 +2,9 @@
 <dossiers>
     <dossiers>
         <id>7cea74df-ed3e-45f0-bc41-d34446e738b7</id>
-        <nomDossier></nomDossier>
+        <nomDossier>ddd</nomDossier>
         <numDossier>12</numDossier>
-        <tf></tf>
+        <tf>2448</tf>
     </dossiers>
     <dossiers>
         <id>47282ccf-723c-4e79-ba7c-9eef5568a241</id>
@@ -13,31 +13,13 @@
         <tf>222</tf>
     </dossiers>
     <dossiers>
-        <id>4678b453-113c-417a-a600-c518beffecce</id>
-        <nomDossier></nomDossier>
-        <numDossier>13</numDossier>
-        <tf></tf>
-    </dossiers>
-    <dossiers>
         <id>64ad95a6-6497-46b9-85cd-6d835fb87b90</id>
         <nomDossier>dzd</nomDossier>
         <numDossier>458</numDossier>
         <tf>45454</tf>
     </dossiers>
     <dossiers>
-        <id>0ef09e0f-b3fe-4618-8a45-77573bceef78</id>
-        <nomDossier>dzd</nomDossier>
-        <numDossier>458</numDossier>
-        <tf>45454</tf>
-    </dossiers>
-    <dossiers>
         <id>2902bec4-d719-4510-b972-7e05c9a360f1</id>
-        <nomDossier>csfaf</nomDossier>
-        <numDossier>55</numDossier>
-        <tf>554</tf>
-    </dossiers>
-    <dossiers>
-        <id>3a2fbbd9-e3e4-45fe-a2b8-91e24626e9ed</id>
         <nomDossier>csfaf</nomDossier>
         <numDossier>55</numDossier>
         <tf>554</tf>

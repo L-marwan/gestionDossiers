@@ -111,6 +111,22 @@ public class FormAjout extends JPanel {
 		btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Dossiers d = Dossiers.getInstance(FILE_PATH);
+					int index = table.getSelectedRow();
+					if(index>=0){
+						d.supprimer(d.getDossiers().get(index).getId());
+						d.save(FILE_PATH);
+						loadData();
+					}
+					
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (JAXBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnSupprimer.setLocation(117, 113);

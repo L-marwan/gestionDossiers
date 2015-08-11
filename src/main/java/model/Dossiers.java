@@ -52,8 +52,8 @@ public class Dossiers {
 		dossiers.add(d);
 	}
 	
-	public void supprimer (int numDossier ){
-		dossiers.remove(new Dossier(numDossier));
+	public void supprimer (String id ){
+		dossiers.remove(new Dossier(id));
 	}
 	
 	public void modifier (Dossier d ){

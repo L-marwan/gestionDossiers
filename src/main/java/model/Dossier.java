@@ -29,9 +29,8 @@ public class Dossier {
 		 this.tf = tf;
 	}
 	
-	public Dossier (int num){
-		id = IDGenerator.nextUUID();
-		this.numDossier = num;
+	public Dossier (String id){
+		this.id = id;
 	}
 	
 	/**
