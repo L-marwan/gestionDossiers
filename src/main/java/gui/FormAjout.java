@@ -15,6 +15,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingWorker;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.JAXBException;
 
@@ -46,6 +48,23 @@ public class FormAjout extends JPanel {
 	public FormAjout(final JTable table ) {
 		this.table = table;
 		this.model = (DefaultTableModel)table.getModel();
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			
+			public void valueChanged(ListSelectionEvent e) {
+				int index = table.getSelectedRow();
+				if(index != -1)
+					try {
+						remplir(index);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (JAXBException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			}
+		});
 		
 		numLab = new JLabel("Num Dossier :");
 		numLab.setBounds(40, 20, 80, 14);
@@ -191,7 +210,9 @@ public class FormAjout extends JPanel {
 			columnNames.add("Num Dossier");
 			columnNames.add("Nom Projet");
 			columnNames.add("T.F");
-			columnNames.add("bool");
+			columnNames.add("Et.Prélim");
+			columnNames.add("Et.Avt.Projet");
+			columnNames.add("Et.Exe");
 			// Data of the table
 			Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 			for(Dossier d :rs) {
@@ -199,7 +220,9 @@ public class FormAjout extends JPanel {
 				vector.add(d.getNumDossier());
 				vector.add(d.getNomDossier());
 				vector.add(d.getTf());
-				vector.add(new Boolean(true));
+				vector.add(d.isPreli());
+				vector.add(d.isAvantProjet());
+				vector.add(d.isExe());
 				data.add(vector);
 			}
 
@@ -276,15 +299,11 @@ public class FormAjout extends JPanel {
 					if(isSet(recuTF)){
 						aAjouter.setRecu(Integer.parseInt(recuTF.getText()));
 					}
-					if(prelim.isSelected()){
-						aAjouter.setPreli(true);
-					}
-					if(avantpro.isSelected()){
-						aAjouter.setAvantProjet(true);
-					}
-					if(exe.isSelected()){
-						aAjouter.setExe(true);
-					}
+				
+				aAjouter.setAvantProjet(avantpro.isSelected());	
+				aAjouter.setExe(exe.isSelected());
+				aAjouter.setPreli(prelim.isSelected());
+				
 				aAjouter.setId(d.getDossiers().get(index).getId());
 				d.modifier(aAjouter);
 				d.save(FILE_PATH);
@@ -298,5 +317,21 @@ public class FormAjout extends JPanel {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}	
+	}
+	
+	public void remplir(int index) throws IOException, JAXBException{
+		Dossiers d = Dossiers.getInstance(FILE_PATH);
+		Dossier doss =d.getDossiers().get(index);
+		numTF.setText(doss.getNumDossier()+"");
+		nomTF.setText(doss.getNomDossier());
+		tfTF.setText(doss.getTf());
+		mntInitTF.setText(doss.getMntInit()+"");
+		recuTF.setText(doss.getRecu()+"");
+		restTF.setText(doss.getRest()+"");
+		
+		prelim.setSelected(doss.isPreli());
+		avantpro.setSelected(doss.isAvantProjet());
+		exe.setSelected(doss.isExe());
+		
 	}
 }

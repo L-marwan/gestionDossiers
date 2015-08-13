@@ -67,6 +67,9 @@ public class Dossiers {
 		dAModifier.setNomDossier(d.getNomDossier());
 		dAModifier.setNumDossier(d.getNumDossier());
 		dAModifier.setTf(d.getTf());
+		dAModifier.setAvantProjet(d.isAvantProjet());
+		dAModifier.setPreli(d.isPreli());
+		dAModifier.setExe(d.isExe());
 	}
 	
 	public void save (String path) throws IOException, JAXBException{

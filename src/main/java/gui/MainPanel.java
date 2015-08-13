@@ -62,6 +62,11 @@ public class MainPanel  extends JPanel{
 			public boolean isCellEditable(int row, int column){  
 				return false;  
 			}
+			public Class<?> getColumnClass(int colIndex) {
+
+			                return getValueAt(0, colIndex).getClass();
+
+			            }
 		};
 		listeDossiers = new JTable(model);
 		listeDossiers.setRowSelectionAllowed(true);
@@ -100,7 +105,9 @@ public class MainPanel  extends JPanel{
 			columnNames.add("Num Dossier");
 			columnNames.add("Nom Projet");
 			columnNames.add("T.F");
-			columnNames.add("bool");
+			columnNames.add("Et.Prélim");
+			columnNames.add("Et.Avt.Projet");
+			columnNames.add("Et.Exe");
 			// Data of the table
 			Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 			
@@ -109,7 +116,9 @@ public class MainPanel  extends JPanel{
 				vector.add(d.getNumDossier());
 				vector.add(d.getNomDossier());
 				vector.add(d.getTf());
-				vector.add(new Boolean(true));
+				vector.add(d.isPreli());
+				vector.add(d.isAvantProjet());
+				vector.add(d.isExe());
 				data.add(vector);
 			}
 
