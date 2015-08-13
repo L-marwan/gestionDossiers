@@ -6,12 +6,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingWorker;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.JAXBException;
 
@@ -19,9 +22,11 @@ import model.Dossier;
 import model.Dossiers;
 
 public class FormAjout extends JPanel {
-	private JLabel numLab, nomLab, tfLab;
-	private JTextField numTF, nomTF , tfTF ;
+	private JLabel numLab, nomLab, tfLab, mntInitLab,recuLab,restLab;
+	private JTextField numTF, nomTF , tfTF,mntInitTF,recuTF,restTF;
 	private JButton btnAjouter, btnSupprimer, btnModifier;
+	
+	private JCheckBox prelim,avantpro,exe;
 	
 	private DefaultTableModel model;
 	private JTable table;
@@ -38,19 +43,21 @@ public class FormAjout extends JPanel {
 		this.table = table;
 		this.model = (DefaultTableModel)table.getModel();
 		
-		numLab = new JLabel("Num :");
-		numLab.setBounds(33, 8, 43, 14);
-		nomLab = new JLabel("Nom :");
-		nomLab.setBounds(33, 39, 43, 14);
+		numLab = new JLabel("Num Dossier :");
+		numLab.setBounds(40, 27, 80, 14);
+		nomLab = new JLabel("Projet :");
+		nomLab.setBounds(40, 52, 80, 14);
 		tfLab = new JLabel ("TF :");
-		tfLab.setBounds(33, 72, 43, 14);
+		tfLab.setBounds(40, 72, 80, 14);
 		
 		numTF = new JTextField();
-		numTF.setBounds(96, 5, 90, 20);
+		numTF.setBounds(130, 24, 99, 20);
 		nomTF = new JTextField();
-		nomTF.setBounds(96, 36, 90, 20);
+		nomTF.setBounds(130, 47, 99, 20);
 		tfTF = new JTextField();
-		tfTF.setBounds(96, 69, 90, 20);
+		tfTF.setBounds(130, 69, 99, 20);
+		
+		
 
 		btnAjouter = new JButton("Ajouter");
 		btnAjouter.addActionListener(new ActionListener() {
@@ -80,7 +87,7 @@ public class FormAjout extends JPanel {
 				}				
 			}
 		});
-		btnAjouter.setLocation(10, 113);
+		btnAjouter.setLocation(0, 253);
 		btnAjouter.setSize(90, 23);
 		btnModifier = new JButton("Modifier");
 		btnModifier.addActionListener(new ActionListener() {
@@ -106,7 +113,7 @@ public class FormAjout extends JPanel {
 				}	
 			}
 		});
-		btnModifier.setLocation(226, 113);
+		btnModifier.setLocation(205, 253);
 		btnModifier.setSize(95, 22);
 		btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.addActionListener(new ActionListener() {
@@ -129,21 +136,49 @@ public class FormAjout extends JPanel {
 				}
 			}
 		});
-		btnSupprimer.setLocation(117, 113);
+		btnSupprimer.setLocation(100, 253);
 		btnSupprimer.setSize(95, 23);
 		
 		
 		setLayout(null);
+		JPanel  dossier= new JPanel();
+		dossier.setSize(400, 100);
+		dossier.setLocation(10, 11);
+		TitledBorder tb = BorderFactory.createTitledBorder("Dossier Technique : ");
+		dossier.setBorder(tb);
+		dossier.setLayout(null);
+		dossier.add(numLab);
+		dossier.add(numTF);
 		
-		add(numLab);
-		add(numTF);
+		dossier.add(nomLab);
+		dossier.add(nomTF);
 		
-		add(nomLab);
-		add(nomTF);
+		dossier.add(tfLab);
+		dossier.add(tfTF);
 		
-		add(tfLab);
-		add(tfTF);	
+		JPanel  PhaseEtude= new JPanel();
+		PhaseEtude.setLocation(10, 122);
+		PhaseEtude.setSize(400, 120);
+
+		TitledBorder tb1 = BorderFactory.createTitledBorder("Phase étude : ");
+		PhaseEtude.setBorder(tb1);
+		prelim= new JCheckBox("Etude préliminaire");
+		prelim.setBounds(40, 22, 165, 23);
+		avantpro = new JCheckBox("Etude avant projet");
+		avantpro.setBounds(40, 50, 165, 23);
+		exe = new JCheckBox("Etude projet d'execution");
+		exe.setBounds(40, 76, 165, 23);
+		PhaseEtude.setLayout(null);
+		PhaseEtude.add(prelim);
+		PhaseEtude.add(avantpro);
+		PhaseEtude.add(exe);
 		
+		JPanel finance = new JPanel();
+		TitledBorder tb2 = BorderFactory.createTitledBorder("Dossier finanananacier");
+		
+		
+		add(PhaseEtude);
+		add(dossier);
 		add(btnAjouter);
 		add(btnSupprimer);
 		add(btnModifier);
