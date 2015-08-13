@@ -9,10 +9,10 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		mainPan = new MainPanel();
 		
-		setSize(800,600);
+		setSize(870,600);
+		setResizable(false);
 		setTitle("gestion des dossiers");
 		getContentPane().add(mainPan);
-		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);

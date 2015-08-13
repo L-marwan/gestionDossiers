@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.print.Book;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -99,6 +100,7 @@ public class MainPanel  extends JPanel{
 			columnNames.add("Num Dossier");
 			columnNames.add("Nom Projet");
 			columnNames.add("T.F");
+			columnNames.add("bool");
 			// Data of the table
 			Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 			
@@ -107,6 +109,7 @@ public class MainPanel  extends JPanel{
 				vector.add(d.getNumDossier());
 				vector.add(d.getNomDossier());
 				vector.add(d.getTf());
+				vector.add(new Boolean(true));
 				data.add(vector);
 			}
 

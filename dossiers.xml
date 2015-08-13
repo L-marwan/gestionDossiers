@@ -1,27 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dossiers>
     <dossiers>
+        <avantProjet>false</avantProjet>
+        <exe>false</exe>
         <id>7cea74df-ed3e-45f0-bc41-d34446e738b7</id>
+        <mntInit>0</mntInit>
         <nomDossier>ddd</nomDossier>
         <numDossier>12</numDossier>
+        <preli>false</preli>
+        <recu>0</recu>
+        <rest>0</rest>
         <tf>2448</tf>
     </dossiers>
     <dossiers>
+        <avantProjet>false</avantProjet>
+        <exe>false</exe>
         <id>47282ccf-723c-4e79-ba7c-9eef5568a241</id>
+        <mntInit>0</mntInit>
         <nomDossier>sss</nomDossier>
         <numDossier>15</numDossier>
+        <preli>false</preli>
+        <recu>0</recu>
+        <rest>0</rest>
         <tf>222</tf>
     </dossiers>
     <dossiers>
+        <avantProjet>false</avantProjet>
+        <exe>false</exe>
         <id>64ad95a6-6497-46b9-85cd-6d835fb87b90</id>
+        <mntInit>0</mntInit>
         <nomDossier>dzd</nomDossier>
         <numDossier>458</numDossier>
+        <preli>false</preli>
+        <recu>0</recu>
+        <rest>0</rest>
         <tf>45454</tf>
     </dossiers>
     <dossiers>
+        <avantProjet>false</avantProjet>
+        <exe>false</exe>
         <id>be2b607d-8766-4b82-967f-81d3bef933be</id>
+        <mntInit>0</mntInit>
         <nomDossier>dzd</nomDossier>
         <numDossier>454</numDossier>
+        <preli>false</preli>
+        <recu>0</recu>
+        <rest>0</rest>
         <tf>d15454</tf>
+    </dossiers>
+    <dossiers>
+        <avantProjet>false</avantProjet>
+        <exe>false</exe>
+        <id>44137138-b7fe-4641-a165-11f96d11b3bf</id>
+        <mntInit>0</mntInit>
+        <nomDossier>FSFSFD</nomDossier>
+        <numDossier>12</numDossier>
+        <preli>false</preli>
+        <recu>0</recu>
+        <rest>0</rest>
+        <tf>225</tf>
     </dossiers>
 </dossiers>

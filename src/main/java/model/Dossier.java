@@ -120,8 +120,11 @@ public class Dossier {
 		return recu;
 	}
 
+	
+	//this needs to be discussed 
 	public void setRecu(int recu) {
 		this.recu = recu;
+		setRest(mntInit-recu);
 	}
 
 	public int getRest() {
