@@ -4,12 +4,12 @@
         <avantProjet>false</avantProjet>
         <exe>false</exe>
         <id>8c9c2225-0c41-4e75-a575-02fbbad7094b</id>
-        <mntInit>0</mntInit>
+        <mntInit>10000</mntInit>
         <nomDossier>Essamad</nomDossier>
         <numDossier>0</numDossier>
         <preli>false</preli>
-        <recu>0</recu>
-        <rest>0</rest>
+        <recu>9000</recu>
+        <rest>1000</rest>
         <tf>35866/20</tf>
     </dossiers>
     <dossiers>

@@ -70,6 +70,8 @@ public class Dossiers {
 		dAModifier.setAvantProjet(d.isAvantProjet());
 		dAModifier.setPreli(d.isPreli());
 		dAModifier.setExe(d.isExe());
+		dAModifier.setMntInit(d.getMntInit());
+		dAModifier.setRecu(d.getRecu());
 	}
 	
 	public void save (String path) throws IOException, JAXBException{
